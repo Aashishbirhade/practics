@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Degarelix Ferring - Fixed Border Radius</title>
+    <!-- Bootstrap 5.0.2 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .second {
+            width: 100%;
+            background: #BEDEE1;
+            position: relative;
+            overflow: hidden;
+            padding: 60px 0;
+        }
+
+        .floating-bg {
+            opacity: 0.1;
+            position: absolute;
+            top: 2%;
+            right: 0;
+            width: 400px;
+            z-index: 0;
+        }
+
+        .second-container {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .second-container h1 {
+            color: #DE7B1F;
+            font-size: 32px;
+            font-style: normal;
+            font-weight: bolder;
+            line-height: 32px;
+            margin-bottom: 29px;
+        }
+
+        .second-container p {
+            font-size: 20px;
+            font-weight: 400;
+            margin-bottom: 30px;
+        }
+
+        .box {
+            font-size: 17px;
+            margin-bottom: 40px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .box1 {
+            background: #ffffff;
+            text-align: left;
+            border-top-left-radius: 80px;
+            border-bottom-left-radius: 80px;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+            padding: 35px 40px;
+            width: 320px;
+            margin-right: 0;
+            display: flex;
+            align-items: center;
+            min-height: 220px;
+        }
+
+        .box2 {
+            background-color: #064368;
+            text-align: left;
+            color: white;
+            border-top-right-radius: 80px;
+            border-bottom-right-radius: 80px;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+            padding: 35px 40px;
+            width: 320px;
+            margin-left: 0;
+            display: flex;
+            align-items: center;
+            min-height: 220px;
+        }
+
+        .second-container button {
+            border-radius: 24px 0;
+            padding: 12px 40px;
+            background-color: #0D6E7D;
+            display: inline-block;
+            text-decoration: none;
+            border: none;
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        
+        .second-container button:hover {
+            background: #DE7B1F;
+            cursor: pointer;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 1200px) {
+            .box1, .box2 {
+                width: 280px;
+                padding: 30px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .box1, .box2 {
+                width: 240px;
+                padding: 25px;
+                min-height: 200px;
+            }
+            
+            .second-container h1 {
+                font-size: 28px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .floating-bg {
+                width: 300px;
+            }
+            
+            .box {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .box1 {
+                border-top-left-radius: 80px;
+                border-top-right-radius: 80px;
+                border-bottom-left-radius: 0;
+                border-bottom-right-radius: 0;
+                width: 85%;
+                margin-right: 0;
+                margin-bottom: 0;
+                min-height: auto;
+            }
+            
+            .box2 {
+                border-bottom-left-radius: 80px;
+                border-bottom-right-radius: 80px;
+                border-top-left-radius: 0;
+                border-top-right-radius: 0;
+                width: 85%;
+                margin-left: 0;
+                min-height: auto;
+            }
+            
+            .second {
+                padding: 40px 0;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .second-container h1 {
+                font-size: 24px;
+                line-height: 1.3;
+            }
+            
+            .second-container p {
+                font-size: 18px;
+            }
+            
+            .box1, .box2 {
+                padding: 20px;
+                width: 90%;
+            }
+            
+            .box1 {
+                border-radius: 40px 40px 0 0 !important;
+            }
+            
+            .box2 {
+                border-radius: 0 0 40px 40px !important;
+            }
+            
+            .floating-bg {
+                width: 200px;
+            }
+            
+            .second-container button {
+                padding: 10px 30px;
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="second">
+        <div class="container-fluid position-relative">
+            <img src="https://placehold.co/600x400/2392cf/FFFFFF/png?text=Background+Image" class="floating-bg" alt="">
+            
+            <div class="container second-container">
+                <div class="row justify-content-center">
+                    <div class="col-12">
+                        <h1 class="mb-4">DEGARELIX FERRING is a different class of <br class="d-none d-md-block"> ADT1</h1>
+                        <p class="mb-4">HSPC (hormone sensitive prostate cancer) can be treated with...</p>
+                        
+                        <div class="box">
+                            <div class="box1">
+                                <div> 
+                                    <strong style="color: #DE7B1F;">LHRH agonists</strong> that overstimulate
+                                    gonadotrophin releasing hormone (GnRH)
+                                    receptors and rely on a negative feedback to
+                                    achieve testosterone suppression, but may cause
+                                    an initial clinical flare
+                                </div>
+                            </div>
+                            <div class="box2">
+                                <div>
+                                    <strong>DEGARELIX FERRING</strong>, a GnRH antagonist that blocks GnRH receptors directly, enabling rapid
+                                    testosterone suppression.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button class="mt-4">More on the MoA of Degarelix Ferring</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap 5.0.2 JS with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
