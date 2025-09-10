@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Degarelix Ferring - Circular Buttons</title>
+    <!-- Bootstrap 5.0.2 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            overflow-x: hidden;
+            font-family: Arial, sans-serif;
+        }
+
+        .request-a-meeting-tab {
+            width: 130px;
+            height: 75px;
+            position: fixed;
+            right: 0px;
+            bottom: 15%;
+            border-top-left-radius: 15px;
+            border-bottom-left-radius: 15px;
+            padding: 0 12px 3px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            z-index: 100;
+            background-color: #2392cf;
+        }
+
+        .request-a-meeting-tab-img {
+            width: 45px;
+            margin-bottom: 5px;
+        }
+
+        .request-a-meeting-tab-text {
+            font-size: 12px;
+            color: white;
+        }
+
+        .hero-section {
+            display: flex;
+            position: relative;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            background: #004269;
+        }
+
+        .hero-section img.banner-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.8;
+        }
+
+        .center-img {
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+        }
+
+        .center-img img {
+            max-height: 50vh;
+            width: auto;
+        }
+
+        .nav-buttons-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 3;
+        }
+
+        .nav-btn-container {
+            position: absolute;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            animation: waitThenShow 4s ease-in forwards;
+            opacity: 0;
+        }
+
+        /* Circular positioning around the center */
+        .nav-btn-1 {
+            top: 15%;
+            left: 50%;
+            animation-delay: 0.5s;
+        }
+        .nav-btn-2 {
+            top: 28%;
+            left: 75%;
+            animation-delay: 0.6s;
+        }
+        .nav-btn-3 {
+            top: 50%;
+            left: 85%;
+            animation-delay: 0.7s;
+        }
+        .nav-btn-4 {
+            top: 72%;
+            left: 75%;
+            animation-delay: 0.8s;
+        }
+        .nav-btn-5 {
+            top: 85%;
+            left: 50%;
+            animation-delay: 0.9s;
+        }
+        .nav-btn-6 {
+            top: 72%;
+            left: 25%;
+            animation-delay: 1.0s;
+        }
+        .nav-btn-7 {
+            top: 50%;
+            left: 15%;
+            animation-delay: 1.1s;
+        }
+        .nav-btn-8 {
+            top: 28%;
+            left: 25%;
+            animation-delay: 1.2s;
+        }
+
+        .nav-icon-container {
+            width: 55px;
+            height: 55px;
+            background-color: #ffffff;
+            cursor: pointer;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .nav-icon-container:hover {
+            transform: scale(1.1);
+        }
+
+        .nav-icon-img {
+            width: 36px;
+            height: 36px;
+        }
+
+        .popup-text-container {
+            position: absolute;
+            background-color: white;
+            border-radius: 60px;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            height: 52px;
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 1;
+            box-shadow: 0 1px 1px rgba(0, 0, 0, .2);
+            width: 0;
+            overflow: hidden;
+        }
+
+        /* Right side text for buttons on right half */
+        .nav-btn-1 .popup-text-container,
+        .nav-btn-2 .popup-text-container,
+        .nav-btn-3 .popup-text-container,
+        .nav-btn-4 .popup-text-container {
+            left: 100%;
+            margin-left: -10px;
+        }
+
+        /* Left side text for buttons on left half */
+        .nav-btn-5 .popup-text-container,
+        .nav-btn-6 .popup-text-container,
+        .nav-btn-7 .popup-text-container,
+        .nav-btn-8 .popup-text-container {
+            right: 100%;
+            margin-right: -10px;
+            justify-content: flex-end;
+        }
+
+        .pill-text {
+            color: #004269;
+            text-align: center;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-size: 13px;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .nav-btn-link {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            position: relative;
+        }
+
+        .nav-btn-container:hover .popup-text-container {
+            opacity: 1;
+            width: auto;
+            padding: 0 26px;
+        }
+
+        .nav-btn-container:hover .pill-text {
+            opacity: 1;
+        }
+
+        .hero-lower-text {
+            letter-spacing: 0.4px;
+            font-size: 16px;
+            line-height: 26px;
+            display: block;
+            position: absolute;
+            bottom: 125px;
+            font-weight: 400;
+            color: #ffffff;
+            z-index: 10;
+            width: 100%;
+            text-align: center;
+            animation: hiddenReveal 3.5s ease-in forwards;
+        }
+        
+        /* Animations */
+        @keyframes waitThenShow {
+            0% {
+                opacity: 0;
+            }
+            80% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes hiddenReveal {
+            0% {
+                opacity: 0;
+            }
+            70% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* Responsive adjustments for hero section */
+        @media (max-width: 1200px) {
+            .nav-icon-container {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .nav-icon-img {
+                width: 32px;
+                height: 32px;
+            }
+            
+            .pill-text {
+                font-size: 12px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .center-img img {
+                max-height: 40vh !important;
+            }
+            
+            .nav-icon-container {
+                width: 45px;
+                height: 45px;
+            }
+            
+            .nav-icon-img {
+                width: 28px;
+                height: 28px;
+            }
+            
+            .pill-text {
+                font-size: 11px;
+            }
+            
+            .hero-lower-text {
+                font-size: 14px;
+                bottom: 100px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .center-img img {
+                max-height: 30vh !important;
+            }
+            
+            .nav-btn-container {
+                transform: translate(-50%, -50%) scale(0.9);
+            }
+            
+            .hero-lower-text {
+                font-size: 13px;
+                padding: 0 20px;
+                bottom: 80px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .center-img img {
+                max-height: 25vh !important;
+            }
+            
+            .nav-btn-container {
+                transform: translate(-50%, -50%) scale(0.8);
+            }
+            
+            /* Hide half of the buttons on mobile */
+            .nav-btn-5, .nav-btn-6, .nav-btn-7, .nav-btn-8 {
+                display: none;
+            }
+            
+            /* Adjust positions for remaining buttons */
+            .nav-btn-1 {
+                top: 20%;
+                left: 50%;
+            }
+            .nav-btn-2 {
+                top: 40%;
+                left: 75%;
+            }
+            .nav-btn-3 {
+                top: 60%;
+                left: 75%;
+            }
+            .nav-btn-4 {
+                top: 80%;
+                left: 50%;
+            }
+            
+            .hero-lower-text {
+                font-size: 12px;
+                bottom: 60px;
+            }
+            
+            /* Adjust hover plates for mobile */
+            .nav-btn-container:hover .popup-text-container {
+                padding: 0 15px;
+            }
+            
+            .pill-text {
+                font-size: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <div class="hero-section">
+            <img src="https://placehold.co/1920x1080/004269/FFFFFF/png?text=Hero+Banner" alt="Banner" class="banner-img">
+            <div class="center-img">
+                <img src="https://placehold.co/600x600/2392cf/FFFFFF/png?text=Center+Image" alt="Hero Section Image">
+            </div>
+            
+            <div class="nav-buttons-container">
+                <!-- Buttons with right side text (1,2,3,4) -->
+                <div class="nav-btn-container nav-btn-1">
+                    <a class="nav-btn-link" href="#section-seven">
+                        <div class="nav-icon-container">
+                            <img class="nav-icon-img" src="https://placehold.co/36x36/DE7B1F/FFFFFF/png?text=1" alt="Navigation Icon">
+                        </div>
+                        <div class="popup-text-container">
+                            <div class="pill-text">Licence</div>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="nav-btn-container nav-btn-2">
+                    <a class="nav-btn-link" href="#section-eight">
+                        <div class="nav-icon-container">
+                            <img class="nav-icon-img" src="https://placehold.co/36x36/DE7B1F/FFFFFF/png?text=2" alt="Navigation Icon">
+                        </div>
+                        <div class="popup-text-container">
+                            <div class="pill-text">support &amp; resources</div>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="nav-btn-container nav-btn-3">
+                    <a class="nav-btn-link" href="#section-six">
+                        <div class="nav-icon-container">
+                            <img class="nav-icon-img" src="https://placehold.co/36x36/DE7B1F/FFFFFF/png?text=3" alt="Navigation Icon">
+                        </div>
+                        <div class="popup-text-container">
+                            <div class="pill-text">what do patients think?</div>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="nav-btn-container nav-btn-4">
+                    <a class="nav-btn-link" href="#section-five">
+                        <div class="nav-icon-container">
+                            <img class="nav-icon-img" src="https://placehold.co/36x36/DE7B1F/FFFFFF/png?text=4" alt="Navigation Icon">
+                        </div>
+                        <div class="popup-text-container">
+                            <div class="pill-text">delay progression</div>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- Buttons with left side text (5,6,7,8) -->
+                <div class="nav-btn-container nav-btn-5">
+                    <a class="nav-btn-link" href="#section-one">
+                        <div class="nav-icon-container">
+                            <img class="nav-icon-img" src="https://placehold.co/36x36/0D6E7D/FFFFFF/png?text=5" alt="Navigation Icon">
+                        </div>
+                        <div class="popup-text-container">
+                            <div class="pill-text">A Different Class of Adt</div>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="nav-btn-container nav-btn-6">
+                    <a class="nav-btn-link" href="#section-two">
+                        <div class="nav-icon-container">
+                            <img class="nav-icon-img" src="https://placehold.co/36x36/0D6E7D/FFFFFF/png?text=6" alt="Navigation Icon">
+                        </div>
+                        <div class="popup-text-container">
+                            <div class="pill-text">control cvd</div>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="nav-btn-container nav-btn-7">
+                    <a class="nav-btn-link" href="#section-three">
+                        <div class="nav-icon-container">
+                            <img class="nav-icon-img" src="https://placehold.co/36x36/0D6E7D/FFFFFF/png?text=7" alt="Navigation Icon">
+                        </div>
+                        <div class="popup-text-container">
+                            <div class="pill-text">economic burden</div>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="nav-btn-container nav-btn-8">
+                    <a class="nav-btn-link" href="#section-four">
+                        <div class="nav-icon-container">
+                            <img class="nav-icon-img" src="https://placehold.co/36x36/0D6E7D/FFFFFF/png?text=8" alt="Navigation Icon">
+                        </div>
+                        <div class="popup-text-container">
+                            <div class="pill-text">disease related symptoms</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="hero-lower-text">
+                To navigate the website, click on any of the icons around the heart
+            </div>
+        </div>
+    </section>
+
+    <a class="request-a-meeting-tab" href="#">
+        <img class="request-a-meeting-tab-img" src="https://placehold.co/45x45/FFFFFF/2392cf/png?text=📅">
+        <p class="request-a-meeting-tab-text">Request a Meeting</p>
+    </a>
+
+    <!-- Bootstrap 5.0.2 JS with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
